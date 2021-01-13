@@ -1,0 +1,58 @@
+﻿﻿#image-canvas {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+}
+
+#image-canvas img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.block-point-container{
+    position: absolute;
+    cursor: move;
+    user-select: none;
+    pointer-events: none;
+}
+
+.block-point {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    pointer-events: all;
+}
+
+.block-point-text{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+
+.editor-image-canvas {
+    width: 100%;
+    margin: 2px 0 5px 0;
+}
+
+
+#noimage{
+    display: none;
+}
+
+#noimage.show{
+	width: 195px;
+	height: 120px;
+    background: #f8f9f9;
+    border: 1px solid #DEDEDE;
+}
+
+
+.hide{
+    display: none;
+}
