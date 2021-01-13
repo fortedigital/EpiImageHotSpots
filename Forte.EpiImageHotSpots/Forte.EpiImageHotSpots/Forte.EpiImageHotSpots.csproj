@@ -4,4 +4,10 @@
         <TargetFramework>net461</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="EPiServer.CMS.AspNet" Version="11.13.2" />
+        <PackageReference Include="EPiServer.CMS.Core" Version="11.13.2" />
+        <PackageReference Include="EPiServer.CMS.UI.Core" Version="11.13.2" />
+        <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    </ItemGroup>
 </Project>
