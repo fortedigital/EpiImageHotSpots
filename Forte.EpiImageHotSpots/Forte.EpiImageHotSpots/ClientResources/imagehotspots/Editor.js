@@ -77,8 +77,11 @@
 
                     const rec = this.image.getBoundingClientRect()
 
-                    const percentLeft = (e.clientX - rec.left) / rec.width * 100;
-                    const percentTop = (e.clientY - rec.top) / rec.height * 100;
+                    let percentLeft = (e.clientX - rec.left) / rec.width * 100;
+                    let percentTop = (e.clientY - rec.top) / rec.height * 100;
+
+                    percentLeft = percentLeft > 100 ? 100 : percentLeft < 0 ? 0 : percentLeft;
+                    percentTop = percentTop > 100 ? 100 : percentTop < 0 ? 0 : percentTop;
 
                     target.style.top = `${percentTop}%`;
                     target.style.left = `${percentLeft}%`;
