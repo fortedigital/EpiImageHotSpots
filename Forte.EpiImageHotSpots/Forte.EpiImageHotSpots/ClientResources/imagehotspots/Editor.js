@@ -5,7 +5,8 @@
         "dijit/registry",
         "dijit/_Widget",
         "dijit/_TemplatedMixin",
-        "xstyle/css!./WidgetTemplate.css"],
+        "xstyle/css!./WidgetTemplate.css",
+        "dojo/on"],
     function (
         domConstruct,
         template,
@@ -13,7 +14,8 @@
         registry,
         _Widget,
         _TemplatedMixin,
-        resources) {
+        resources,
+        on) {
         return declare([
                 _Widget,
                 _TemplatedMixin],
@@ -67,9 +69,7 @@
                         domConstruct.place(point, container);
                         domConstruct.place(label, container);
                         domConstruct.place(container, this.canvas);
-
-                        container.addEventListener('dragend', (e) => this._handleDragEnd(e, container));
-
+                        on(container, "dragend", e => this._handleDragEnd(e, container))
                     }
                 },
 
