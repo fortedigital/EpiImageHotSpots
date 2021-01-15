@@ -10,9 +10,7 @@ using EPiServer.Web.Routing;
 
 namespace Forte.EpiImageHotSpots
 {
-    [EditorDescriptorRegistration(TargetType = typeof(ImageHotSpots))]
-    [EditorDescriptorRegistration(TargetType = typeof(ImageHotSpots),
-        UIHint = UiHint)]
+    [EditorDescriptorRegistration(TargetType = typeof(ImageHotSpots), UIHint = UiHint)]
     public class ImageHotSpotsEditorDescriptor : EditorDescriptor
     {
         private readonly IUrlResolver urlResolver;
@@ -48,10 +46,10 @@ namespace Forte.EpiImageHotSpots
 
             
             this.AddImageUrl(metadata, lastVersion);
-            this.AddBockPoints(metadata, lastVersion);
+            this.AddBlockPoints(metadata, lastVersion);
         }
 
-        private void AddBockPoints(ExtendedMetadata metadata, ImageHotSpotsBlockBase hotSpotsBlock)
+        private void AddBlockPoints(ExtendedMetadata metadata, ImageHotSpotsBlockBase hotSpotsBlock)
         {
             var blocks = hotSpotsBlock.Blocks?.FilteredItems.Select(x => new
             {
