@@ -8,6 +8,7 @@ namespace Forte.EpiImageHotSpots
     [ContentType(GUID = "6D188F84-E2EE-4954-B535-B09309878813")]
     public class ImageHotSpotsBlockBase : BlockData
     {
+        [Required]
         [Display(Order = 1)]
         [UIHint(UIHint.Image)]
         public virtual ContentReference Image { get; set; }
