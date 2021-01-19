@@ -20,6 +20,6 @@ namespace Forte.EpiImageHotSpots
         [UIHint(ImageHotSpotsEditorDescriptor.UiHint)]
         [BackingType(typeof(ImageHotSpotsProperty))]
         [Display(Order = 3, Name = "Preview")]
-        public virtual Forte.EpiImageHotSpots.ImageHotSpots HotSpots { get; set; }
+        public virtual ImageHotSpots HotSpots { get; set; }
     }
 }
