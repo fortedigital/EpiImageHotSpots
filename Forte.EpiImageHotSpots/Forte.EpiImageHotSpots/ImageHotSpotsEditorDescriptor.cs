@@ -55,8 +55,8 @@ namespace Forte.EpiImageHotSpots
             {
                 ContentReference = x.ContentLink.ID,
                 Name = this.contentLoader.Get<IContent>(x.ContentLink).Name,
-                X = hotSpotsBlock.HotSpots?.Value?.FirstOrDefault(h => h.ContentReference == x.ContentLink)?.X,
-                Y = hotSpotsBlock.HotSpots?.Value?.FirstOrDefault(h => h.ContentReference == x.ContentLink)?.Y
+                X = hotSpotsBlock.HotSpots?.FirstOrDefault(h => h.ContentReference == x.ContentLink)?.X,
+                Y = hotSpotsBlock.HotSpots?.FirstOrDefault(h => h.ContentReference == x.ContentLink)?.Y
             });
             
             metadata.EditorConfiguration.Add("blocks", blocks);

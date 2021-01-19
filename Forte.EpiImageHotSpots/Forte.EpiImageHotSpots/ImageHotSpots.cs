@@ -1,13 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using EPiServer.Core;
 
 namespace Forte.EpiImageHotSpots
 {
-    public class ImageHotSpots
+    public class ImageHotSpots : IEnumerable<ImageHotSpot>
     {
-        public List<ImageHotSpot> Value { get; set; }
-    }
+        protected List<ImageHotSpot> Value { get; set; }
+        public IEnumerator<ImageHotSpot> GetEnumerator()
+        {
+            return this.Value.GetEnumerator();
+        }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable) this.Value).GetEnumerator();
+        }
+    }
 
     public class ImageHotSpot
     {
