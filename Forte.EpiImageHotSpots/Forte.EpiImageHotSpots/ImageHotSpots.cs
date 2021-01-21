@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using EPiServer.Core;
+using Newtonsoft.Json;
 
 namespace Forte.EpiImageHotSpots
 {
+    [JsonObject]
     public class ImageHotSpots : IEnumerable<ImageHotSpot>
     {
+        [JsonProperty]
         protected List<ImageHotSpot> Value { get; set; }
         public IEnumerator<ImageHotSpot> GetEnumerator()
         {
