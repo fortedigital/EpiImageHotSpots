@@ -6,6 +6,7 @@
         <AssemblyName>Forte.EpiImageHotSpots</AssemblyName>
         <PackageVersion>1.0.0</PackageVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -38,7 +39,7 @@
         <SolutionDir Condition="'$(SolutionDir)' == ''">$(ProjectDir)</SolutionDir>
         <!-- NOTE! This is different between cms versions, the zip file needs to be named the same in the package -->
         <OutDir>$(OutputPath)</OutDir>
-        <zipFile>$(OutDir)\Forte.EpiserverRedirects.zip</zipFile>
+        <zipFile>$(OutDir)\Forte.EpiImageHotSpots.zip</zipFile>
         <RunPostBuildEvent>Always</RunPostBuildEvent>
     </PropertyGroup>
     <Target Name="CreateNugetPackage" AfterTargets="Build;Rebuild" Condition="'$(Configuration)' == 'Release' ">
