@@ -1,0 +1,58 @@
+trigger:
+ - master
+
+pool:
+  name: Hosted VS2017
+  demands:
+  - msbuild
+  - visualstudio
+  - vstest
+
+steps:
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.3.0'
+  inputs:
+    versionSpec: 4.3.0
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    feedsToUse: config
+    nugetConfigPath: NuGet.Config
+
+- task: sebastianlux.UpdateAssemblyInfo.UpdateAssemblyInfo-task.Update AssemblyInfo@1
+  displayName: 'Update AssemblyInfo.cs files: $(Build.SourcesDirectory)'
+  inputs:
+    assemblyProduct: Forte.EpiImageHotSpots
+    assemblyCompany: 'Forte_ Digital'
+    assemblyVersion: '1.0.$(Build.BuildNumber)'
+
+- task: VSBuild@1
+  displayName: 'Build solution **\*.sln'
+  inputs:
+    configuration: Release
+
+- task: VSTest@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    testAssemblyVer2: |
+     **\*.Tests.dll
+     !**\obj\**
+    diagnosticsEnabled: True
+
+
+- task: NuGetCommand@2
+  displayName: 'NuGet pack'
+  inputs:
+    command: 'pack'
+    packagesToPack: 'Forte.EpiImageHotSpots/Forte.EpiImageHotSpots.nuspec'
+    configuration: Release
+    includeReferencedProjects: true
+    
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    nuGetFeedType: external
+    publishFeedCredentials: 'ForteDigital Nuget.org'
