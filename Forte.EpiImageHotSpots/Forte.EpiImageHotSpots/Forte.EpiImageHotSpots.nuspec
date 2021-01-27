@@ -9,14 +9,16 @@
         <description>Episerver plugin to render blocks at specific coordinates on an image</description>
         <projectUrl>https://github.com/fortedigital/EpiImageHotSpots</projectUrl>
         <dependencies>
-            <dependency id="EPiServer.CMS.AspNet" version="[11.1.0,12)" />
-            <dependency id="EPiServer.CMS.Core" version="[11.1.0,12)" />
-            <dependency id="EPiServer.CMS.UI.Core" version="[11.1.0,12)" />
-            <dependency id="Newtonsoft.Json" version="[10.0.1,11)" />
+            <group targetFramework=".NETFramework4.6.1">
+                <dependency id="EPiServer.CMS.AspNet" version="[11.1.0,12)" />
+                <dependency id="EPiServer.CMS.Core" version="[11.1.0,12)" />
+                <dependency id="EPiServer.CMS.UI.Core" version="[11.1.0,12)" />
+                <dependency id="Newtonsoft.Json" version="[10.0.1,11)" />
+            </group>
         </dependencies>
     </metadata>
     <files>
-        <file src="bin/Forte.EpiImageHotSpots.dll" target="lib\net45" />
+        <file src="bin/Forte.EpiImageHotSpots.dll" target="lib\net461" />
         <file src="bin/Forte.EpiImageHotSpots.zip" target="content\modules\_protected\Forte.EpiImageHotSpots" />
     </files>
 </package>
