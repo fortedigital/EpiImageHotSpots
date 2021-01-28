@@ -10,10 +10,10 @@
         <projectUrl>https://github.com/fortedigital/EpiImageHotSpots</projectUrl>
         <dependencies>
             <group targetFramework=".NETFramework4.6.1">
-                <dependency id="EPiServer.CMS.AspNet" version="[11.1.0,12)" />
-                <dependency id="EPiServer.CMS.Core" version="[11.1.0,12)" />
-                <dependency id="EPiServer.CMS.UI.Core" version="[11.1.0,12)" />
-                <dependency id="Newtonsoft.Json" version="[10.0.1,11)" />
+                <dependency id="EPiServer.CMS.AspNet" version="[11.1.0,)" />
+                <dependency id="EPiServer.CMS.Core" version="[11.1.0,)" />
+                <dependency id="EPiServer.CMS.UI.Core" version="[11.1.0,)" />
+                <dependency id="Newtonsoft.Json" version="[10.0.1,)" />
             </group>
         </dependencies>
     </metadata>
