@@ -46,6 +46,9 @@
 }
 
 #noimage.show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 	width: 195px;
 	height: 120px;
     background: #f8f9f9;
