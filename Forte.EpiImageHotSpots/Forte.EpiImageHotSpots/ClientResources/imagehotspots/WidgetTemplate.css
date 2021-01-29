@@ -29,7 +29,7 @@
 }
 
 .block-point-text{
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     margin-left: 5px;
 }
@@ -47,6 +47,7 @@
 
 #noimage.show{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 	width: 195px;
