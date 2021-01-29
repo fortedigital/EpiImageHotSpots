@@ -42,14 +42,14 @@ namespace Forte.EpiImageHotSpots
                 .OrderBy(x => x.Saved)
                 .Last();
 
-            var lastVersion = this.contentLoader.Get<ImageHotSpotsBlockBase>(lastVersionReference.ContentLink);
+            var lastVersion = this.contentLoader.Get<IImageHotSpotsBlock>(lastVersionReference.ContentLink);
 
             
             this.AddImageUrl(metadata, lastVersion);
             this.AddBlockPoints(metadata, lastVersion);
         }
 
-        private void AddBlockPoints(ExtendedMetadata metadata, ImageHotSpotsBlockBase hotSpotsBlock)
+        private void AddBlockPoints(ExtendedMetadata metadata, IImageHotSpotsBlock hotSpotsBlock)
         {
             var blocks = hotSpotsBlock.Blocks?.FilteredItems.Select(x => new
             {
@@ -62,7 +62,7 @@ namespace Forte.EpiImageHotSpots
             metadata.EditorConfiguration.Add("blocks", blocks);
         }
 
-        private void AddImageUrl(ExtendedMetadata metadata, ImageHotSpotsBlockBase hotSpotsBlock)
+        private void AddImageUrl(ExtendedMetadata metadata, IImageHotSpotsBlock hotSpotsBlock)
         {
             var url = this.urlResolver.GetUrl(hotSpotsBlock.Image);            
             metadata.EditorConfiguration.Add("imageUrl", url);
