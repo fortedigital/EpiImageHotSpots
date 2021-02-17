@@ -66,8 +66,8 @@
                             "class": "block-point-text"
                         });
 
-                        domConstruct.place(point, container);
                         domConstruct.place(label, container);
+                        domConstruct.place(point, container);
                         domConstruct.place(container, this.canvas);
                         on(container, "dragend", e => this._handleDragEnd(e, container))
                     }

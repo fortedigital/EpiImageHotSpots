@@ -29,9 +29,17 @@
 }
 
 .block-point-text{
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    margin-left: 5px;
+    background: white;
+    padding: 0 3px 2px 7px;
+    border-radius: 10px 0 0 10px;
+    margin-top: -10px;
+    position: absolute;
+    width: max-content;
+    display: inline-block;
+    transform: rotate(-20deg);
+    transform-origin: left;
 }
 
 
