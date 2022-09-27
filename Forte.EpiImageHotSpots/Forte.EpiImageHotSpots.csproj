@@ -12,7 +12,6 @@
         <Authors>Forte Digital</Authors>
         <Description>Episerver plugin to render blocks at specific coordinates on an image</Description>
         <PackageProjectUrl>https://github.com/fortedigital/EpiImageHotSpots</PackageProjectUrl>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <NuspecProperties>version=$(Version)</NuspecProperties>
 
         <!-- Include symbol files (*.pdb) in the built .nupkg -->
