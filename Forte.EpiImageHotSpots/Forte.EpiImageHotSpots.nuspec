@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>Forte.EpiImageHotSpots</id>
-        <version>1.0.0.0</version>
+        <version>$version$</version>
         <title>Forte.EpiImageHotSpots</title>
         <authors>Forte_ Digital</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -16,9 +16,6 @@
 
         <!-- Include symbol files (*.pdb) in the built .nupkg -->
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        
-        <AppDesignerFolder>Properties</AppDesignerFolder>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 
     <ItemGroup>
