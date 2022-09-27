@@ -1,40 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net461</TargetFramework>
         <RootNamespace>Forte.EpiImageHotSpots</RootNamespace>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
         <AssemblyName>Forte.EpiImageHotSpots</AssemblyName>
-        <PackageVersion>1.0.0</PackageVersion>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <PackageId>Forte.EpiImageHotSpots</PackageId>
+        <PackageVersion>2.0.0.0</PackageVersion>
+        <Version>2.0.0.0</Version>
+        <Title>Forte.EpiImageHotSpots</Title>
+        <Authors>Forte Digital</Authors>
+        <Description>Smart responsive images in EPiServer with ImageResizing.Net and Focal point</Description>
+        <PackageProjectUrl>https://github.com/fortedigital/EpiImageHotSpots</PackageProjectUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <NuspecProperties>version=$(Version)</NuspecProperties>
+
+        <!-- Include symbol files (*.pdb) in the built .nupkg -->
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="EPiServer.CMS.AspNet" Version="[11.1.0,)" />
-        <PackageReference Include="EPiServer.CMS.Core" Version="[11.1.0,)" />
-        <PackageReference Include="EPiServer.CMS.UI.Core" Version="[11.1.0,)" />
-        <PackageReference Include="Newtonsoft.Json" Version="[10.0.1,)" />
+        <PackageReference Include="EPiServer.CMS.AspNetCore" Version="[12.5.0, 13)" />
+        <PackageReference Include="EPiServer.CMS.Core" Version="[12.5.0, 13)" />
+        <PackageReference Include="EPiServer.CMS.UI.Core" Version="[12.5.0, 13)" />
+        <PackageReference Include="EPiServer.CMS.AspNetCore.Templating" Version="[12.5.0, 13)" />
+        <PackageReference Include="Newtonsoft.Json" Version="[13.0.1,)" />
     </ItemGroup>
 
 
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <DebugType>pdbonly</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\</OutputPath>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
+    <PropertyGroup>
+        <OutputPath>bin/$(Configuration)</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
     <PropertyGroup>
         <ProjectDir Condition="'$(ProjectDir)' == ''">$(MSBuildProjectDirectory)</ProjectDir>
