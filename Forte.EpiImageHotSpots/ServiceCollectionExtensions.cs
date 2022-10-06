@@ -10,7 +10,7 @@ public static class ServiceCollectionExtensions
 {
     
     // ReSharper disable once UnusedMember.Global
-    public static IServiceCollection AddForteEpiResponsivePicture(this IServiceCollection services) 
+    public static IServiceCollection AddForteImageHotSpots(this IServiceCollection services) 
         => services.Configure<ProtectedModuleOptions>(options =>
         {
             if (!options.Items.Any(x => x.Name.Equals(Constants.ModuleName)))

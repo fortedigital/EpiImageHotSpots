@@ -16,6 +16,11 @@
                 <dependency id="Newtonsoft.Json" version="[13.0.1,)" />
             </group>
         </dependencies>
+        <contentFiles>
+            <files include="any/any/modules/_protected/Forte.EpiImageHotSpots/Forte.EpiImageHotSpots.zip"
+                   buildAction="None"
+                   copyToOutput="true"/>
+        </contentFiles>
     </metadata>
     <files>
         <file src="bin/Release/Forte.EpiImageHotSpots.dll" target="lib/net6.0" />

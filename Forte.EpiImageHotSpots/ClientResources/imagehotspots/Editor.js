@@ -93,15 +93,15 @@
                             .filter(x => x.contentReference != target.id);
                     }
                     array.push({
-                            contentReference: target.id,
-                            x: percentLeft,
-                            y: percentTop
+                            ContentReference: target.id,
+                            X: percentLeft,
+                            Y: percentTop
                         }
                     )
                     const value = {
                         value: array
                     }
-                    this._set("value", value);
+                    this._set("Value", value);
                     this.onChange(value);
                 }
             });
