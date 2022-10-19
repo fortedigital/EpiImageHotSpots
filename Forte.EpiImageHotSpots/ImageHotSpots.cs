@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using EPiServer.Core;
 using Newtonsoft.Json;
 
 namespace Forte.EpiImageHotSpots;
@@ -31,11 +30,4 @@ public class ImageHotSpots : IEnumerable<ImageHotSpot>
     {
         return ((IEnumerable) Value).GetEnumerator();
     }
-}
-
-public class ImageHotSpot
-{
-    public ContentReference ContentReference { get; set; }
-    public double X { get; set; }
-    public double Y { get; set; }
 }
