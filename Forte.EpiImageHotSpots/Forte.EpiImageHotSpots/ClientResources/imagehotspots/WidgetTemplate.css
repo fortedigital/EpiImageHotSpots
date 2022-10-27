@@ -42,6 +42,9 @@
     transform-origin: left;
 }
 
+.point-not-set {
+    color:  #a6a6a6;
+}
 
 .editor-image-canvas {
     width: 100%;
