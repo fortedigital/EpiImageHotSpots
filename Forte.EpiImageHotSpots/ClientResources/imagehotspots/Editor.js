@@ -6,7 +6,9 @@
         "dijit/_Widget",
         "dijit/_TemplatedMixin",
         "xstyle/css!./WidgetTemplate.css",
-        "dojo/on"],
+        "dojo/on",
+        "dojo/dom-attr",
+        "dojo/dom"],
     function (
         domConstruct,
         template,
@@ -15,7 +17,9 @@
         _Widget,
         _TemplatedMixin,
         resources,
-        on) {
+        on,
+        domAttr,
+        dom) {
         return declare([
                 _Widget,
                 _TemplatedMixin],
@@ -26,6 +30,9 @@
                 value: null,
                 imageUrl: null,
                 blocks: [],
+                labelIdPrefix: "label",
+                labelClassName: "block-point-text",
+                pointNotSetClassName: "point-not-set",
                 constructor: function () {
                 },
                 onChange: function (value) {
@@ -62,8 +69,10 @@
                             "class": "block-point"
                         })
                         let label = domConstruct.create('span', {
-                            innerHTML: block.name,
-                            "class": "block-point-text"
+                            innerHTML: this._getBlockName(block),
+                            "class": this._getLabelClassName(block),
+                            id: `${this.labelIdPrefix}-${block.contentReference}`,
+                            "data-name": block.name
                         });
 
                         domConstruct.place(label, container);
@@ -103,6 +112,28 @@
                     }
                     this._set("Value", value);
                     this.onChange(value);
+                    this._setLabel(`${this.labelIdPrefix}-${target.id}`);
+                },
+                
+                _getBlockName(block) {
+                  let name = block.name;
+                  if (block.x == null || block.y == null) {
+                    name += " (position not set)";
+                  }
+                  return name;
+                },
+              
+                _getLabelClassName(block) {
+                  if (block.x == null || block.y == null) {
+                    return `${this.labelClassName} ${this.pointNotSetClassName}`
+                  }
+                  return this.labelClassName;
+                },
+              
+                _setLabel(id) {
+                  let element = dom.byId(id);
+                  element.innerHTML = domAttr.get(element, "data-name");
+                  domAttr.set(element, "class", this.labelClassName);
                 }
             });
     });
