@@ -110,7 +110,7 @@
                     const value = {
                         value: array
                     }
-                    this._set("Value", value);
+                    this._set("value", value);
                     this.onChange(value);
                     this._setLabel(`${this.labelIdPrefix}-${target.id}`);
                 },
