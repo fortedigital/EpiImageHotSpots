@@ -19,8 +19,8 @@ public class ImageHotSpotsEditorDescriptor : EditorDescriptor
     public const string UiHint = "imagehotspots";
     private const string HotSpotsProperty = "imagehotspots/Editor";
 
-    public ImageHotSpotsEditorDescriptor(IUrlResolver urlResolver, 
-        IContentLoader contentLoader, 
+    public ImageHotSpotsEditorDescriptor(IUrlResolver urlResolver,
+        IContentLoader contentLoader,
         IContentVersionRepository contentVersionRepository)
     {
         this.urlResolver = urlResolver;
@@ -32,19 +32,21 @@ public class ImageHotSpotsEditorDescriptor : EditorDescriptor
     public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
     {
         base.ModifyMetadata(metadata, attributes);
-            
+
         var owner = metadata.FindOwnerContent();
 
-        if (ContentReference.IsNullOrEmpty(owner.ContentLink))
+        if (owner == null || ContentReference.IsNullOrEmpty(owner.ContentLink))
+        {
             return;
-            
+        }
+
         var lastVersionReference = contentVersionRepository.List(owner.ContentLink)
             .OrderBy(x => x.Saved)
             .Last();
 
         var lastVersion = this.contentLoader.Get<IImageHotSpotsBlock>(lastVersionReference.ContentLink);
 
-            
+
         this.AddImageUrl(metadata, lastVersion);
         this.AddBlockPoints(metadata, lastVersion);
     }
@@ -58,13 +60,13 @@ public class ImageHotSpotsEditorDescriptor : EditorDescriptor
             hotSpotsBlock.HotSpots?.FirstOrDefault(h => h.ContentReference == x.ContentLink)?.X,
             hotSpotsBlock.HotSpots?.FirstOrDefault(h => h.ContentReference == x.ContentLink)?.Y,
         });
-            
+
         metadata.EditorConfiguration.Add("blocks", blocks);
     }
 
     private void AddImageUrl(ExtendedMetadata metadata, IImageHotSpotsBlock hotSpotsBlock)
     {
-        var url = this.urlResolver.GetUrl(hotSpotsBlock.Image);            
+        var url = this.urlResolver.GetUrl(hotSpotsBlock.Image);
         metadata.EditorConfiguration.Add("imageUrl", url);
     }
 }
