@@ -3,11 +3,11 @@
     <PropertyGroup>
         <RootNamespace>Forte.EpiImageHotSpots</RootNamespace>
         <TargetFramework>net6.0</TargetFramework>
-        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+        <AssemblyVersion>$(nugetPackageVersionNumber)</AssemblyVersion>
         <AssemblyName>Forte.EpiImageHotSpots</AssemblyName>
         <PackageId>Forte.EpiImageHotSpots</PackageId>
-        <PackageVersion>2.0.0.0</PackageVersion>
-        <Version>2.0.0.0</Version>
+        <PackageVersion>$(nugetPackageVersionNumber)</PackageVersion>
+        <Version>$(nugetPackageVersionNumber)</Version>
         <Title>Forte.EpiImageHotSpots</Title>
         <Authors>Forte Digital</Authors>
         <Description>Episerver plugin to render blocks at specific coordinates on an image</Description>
