@@ -8,10 +8,13 @@ namespace Forte.EpiImageHotSpots;
 // ReSharper disable once UnusedType.Global
 public static class ServiceCollectionExtensions
 {
-    
+
     // ReSharper disable once UnusedMember.Global
-    public static IServiceCollection AddForteImageHotSpots(this IServiceCollection services) 
-        => services.Configure<ProtectedModuleOptions>(options =>
+    public static IServiceCollection AddForteImageHotSpots(this IServiceCollection services)
+    {
+        services.AddHostedService<ImageHotSpotsSavingHandler>();
+
+        return services.Configure<ProtectedModuleOptions>(options =>
         {
             if (!options.Items.Any(x => x.Name.Equals(Constants.ModuleName)))
             {
@@ -23,4 +26,5 @@ public static class ServiceCollectionExtensions
                 );
             }
         });
+    }
 }

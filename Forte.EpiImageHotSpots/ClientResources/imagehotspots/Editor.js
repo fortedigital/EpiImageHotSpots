@@ -96,10 +96,17 @@
                     target.style.left = `${percentLeft}%`;
 
                     let array = [];
-                    if (this.value != null) {
+                    if (this.value != null && Array.isArray(this.value.value)) {
+                        // Entries from the server use camelCase keys, entries added by this widget use PascalCase.
+                        // Normalize both so the filters below treat them the same.
                         array = this.value.value
-                            .filter(x => this.blocks.some(b => b.contentReference == x.contentReference))
-                            .filter(x => x.contentReference != target.id);
+                            .map(x => ({
+                                ContentReference: this._getReferenceId(x),
+                                X: x.X != null ? x.X : x.x,
+                                Y: x.Y != null ? x.Y : x.y
+                            }))
+                            .filter(x => this.blocks.some(b => this._getReferenceId(b) == x.ContentReference))
+                            .filter(x => x.ContentReference != target.id);
                     }
                     array.push({
                             ContentReference: target.id,
@@ -115,6 +122,12 @@
                     this._setLabel(`${this.labelIdPrefix}-${target.id}`);
                 },
                 
+                _getReferenceId(item) {
+                  let reference = item.contentReference != null ? item.contentReference : item.ContentReference;
+                  // Drop a possible version/provider suffix, e.g. "12_34" or "12__provider"
+                  return reference == null ? null : String(reference).split("_")[0];
+                },
+
                 _getBlockName(block) {
                   let name = block.name;
                   if (block.x == null || block.y == null) {
